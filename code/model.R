@@ -24,15 +24,14 @@ model <- randomForest(activity ~ ., data=train, na.action=na.omit)
 #
 # Make a data prediction model using MLP Neural Network
 #
-# set.seed(23112) # To make it reproducible
-# model <- nnet(activity ~ ., data=train, maxit=1000, size=8, 
-#               linout=FALSE, trace=TRUE, na.action=na.omit)
+set.seed(23112) # To make it reproducible
+model <- nnet(activity ~ ., data=train, maxit=1000, size=8, linout=FALSE, trace=TRUE, na.action=na.omit)
 
 #
 # Make a data prediction model using Support Vector Machine 
 #
-# set.seed(7231) # To make it reproducible
-# model <- svm(activity ~ ., data=train, na.action=na.omit)
+set.seed(7231) # To make it reproducible
+model <- svm(activity ~ ., data=train, na.action=na.omit)
 
 #
 # Predict test activities
@@ -43,9 +42,13 @@ predictions <- predict(model, newdata=test, type="class")
 # Print confusion matrix
 # Which activity classes is harder to predict?
 #
-print(confusionMatrix(predictions, test$activity))
+confusionMatrix(predictions, test$activity)
 
 # What is you benchmark model and accuracy?
 benchmark_model <- tree(activity ~ ., data = train)
+
+plot(benchmark_model)
+text(benchmark_model)
+
 benchmark_pred <- predict(benchmark_model, newdata=test, type="class")
 benchmark <- confusionMatrix(benchmark_pred, test$activity)$overall[1]

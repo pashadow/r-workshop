@@ -3,8 +3,14 @@
 # Diagnostic script
 #
 
-setwd("~/repos/r-workshop/")
-source("code/data_summarization_and_cleaning.R")
+# 1. High Varience - overfitted
+# 2. High Bias - not overfitted
+# 3. All right
+# Slide Solutions last two sentences are crossed, missplaced
+
+
+#setwd("~/repos/r-workshop/")
+#source("code/data_summarization_and_cleaning.R")
 library(nnet)
 library(caret)
 
@@ -67,3 +73,4 @@ plot_learning_curve <- function(learning_curve) {
 # Does your model suffer from high bias or high varience?
 curve <- nnet_learning_curve(train, test, size=8, step=100)
 plot_learning_curve(curve)
+

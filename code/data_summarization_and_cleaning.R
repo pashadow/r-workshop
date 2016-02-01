@@ -3,14 +3,14 @@
 # 
 # R script for data summarization and cleaning
 #
-setwd("~/repos/r-workshop/")
+setwd("~/r-workshop/")
 
 # Import data
 train <- read.csv("data/train.csv")
 test <- read.csv("data/test.csv")
 
 # Was the data written correctly? - dim(), names(), nrow(), ncol(), head(), tail()
-print(dim(train))
+dim(train)
 
 # Does R recognized the var type correctly? - class(), str(), as.factor(), as.numeric()
 

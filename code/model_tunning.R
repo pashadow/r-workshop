@@ -25,15 +25,14 @@ model <- train(activity ~ ., data=train, tuneGrid=expand.grid(.mtry=c(2,3,4,5)),
 #
 # Tune Neural Network hyperparams
 #
-# set.seed(14)
-# model <- train(activity ~ ., data=train, method="nnet", linout=FALSE,
-#                maxit=1000, trace=TRUE, na.action=na.omit, trControl=ctrl)
+set.seed(14)
+model <- train(activity ~ ., data=train, method="nnet", linout=FALSE, maxit=1000, trace=TRUE, na.action=na.omit, trControl=ctrl)
 
 #
 # Tune Support Vector Machine hyperparams
 #
-# set.seed(1331)
-# model <- train(activity ~ ., data=train, method="svmRadial", na.action=na.omit, trControl=ctrl)
+set.seed(1331)
+model <- train(activity ~ ., data=train, method="svmRadial", na.action=na.omit, trControl=ctrl)
 
 #
 # Print information about selected model
